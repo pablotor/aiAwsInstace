@@ -1,4 +1,4 @@
-# IA AWS Instance
+# AI AWS Instance
 
 AI APIs are great. You can experiment with them, integrate them into your apps, and probably do a bunch of other things I haven’t even started to think about. But there’s a catch: all the ones I found are either paid or have an incredibly low usage limit. So, if you have some AWS credits to burn, this might help you out. And if you don’t, [ask for them!](https://pages.awscloud.com/GLOBAL_NCA_LN_ARRC-program-A300-2023.html)  
 
