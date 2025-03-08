@@ -97,4 +97,4 @@ Enjoy!
 ## What's comming
 - Domain and SSL support
 - User configuration
-- Some propper key management would be nice
+- Some proper key management would be nice
