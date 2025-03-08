@@ -1,0 +1,23 @@
+# AWS Cli config
+aws_profile        = "default"
+
+# Region Config
+aws_region         = "sa-east-1"
+availability_zone  = "sa-east-1a"
+# Check the 2023 Amazon Linux AMI asociated with your selected region
+# https://docs.aws.amazon.com/linux/al2023/ug/ec2.html
+ami_id             = "ami-02cfee28b56653f5c"
+
+# VPC Config
+vpc_cidr_block     = "10.0.0.0/16"
+subnet_cidr_block  = "10.0.1.0/24"
+
+# Instance Config
+instance_type      = "t3.small" # I recommend small as the micro 1G of ram is not enough
+root_volume_size   = 10
+instance_name      = "iaAwsInstance" # This ID MUST be unique, so change it
+instance_name_short = "iai" # Not so sure about this one, but probably too
+
+# SSH Config
+public_key_path    = "~/.ssh/id_iaAwsInstance.pub"
+private_key_path   = "~/.ssh/id_iaAwsInstance"
