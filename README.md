@@ -2,7 +2,7 @@
 
 AI APIs are great. You can experiment with them, integrate them into your apps, and probably do a bunch of other things I haven’t even started to think about. But there’s a catch: all the ones I found are either paid or have an incredibly low usage limit. So, if you have some AWS credits to burn, this might help you out. And if you don’t, [ask for them!](https://pages.awscloud.com/GLOBAL_NCA_LN_ARRC-program-A300-2023.html)  
 
-This Terraform script deploys an EC2 instance with Ollama and all the necessary infrastructure to use the Ollama API from the internet with a basic level of authentication. This is not a production-ready script, but it can be a good starting point.  
+This Terraform setup deploys an EC2 instance with Ollama and all the necessary infrastructure to use the Ollama API from the internet with a basic level of authentication. This is not a production-ready script, but it can be a good starting point.  
 
 ## Pre-requisites
 - An AWS account with some funds to burn
@@ -10,7 +10,7 @@ This Terraform script deploys an EC2 instance with Ollama and all the necessary 
 - [The AWS cli installed and set up](https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.html)
 - [The Terraform cli installed and set up](https://developer.hashicorp.com/terraform/tutorials/aws-get-started/install-cli)
 - [An SSH key generated WITHOUT A PASSPHRASE](https://docs.github.com/en/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent)
-- (Comming soon!) A domain
+- (Optional) Using a custom domain and SSL requires a preconfigured domain in AWS or NS records pointing to corresponding AWS NS servers
 
 ## Before deployment
 1. Create your `terraform.tfvars` file from the example:
@@ -54,7 +54,7 @@ If everything went well, you should be able to hit the Ollama API using your API
   ```bash
   curl http://<instance_public_ip>/api/chat \
     -H "Authorization: Bearer <api_key>" -d '{
-      "model": "tinyllama",
+      "model": "<selected_model>",
       "messages": [
         {
           "role": "user",
@@ -95,6 +95,5 @@ main();
 Enjoy!
 
 ## What's comming
-- Domain and SSL support
 - User configuration
 - Some proper key management would be nice

@@ -4,6 +4,10 @@ resource "aws_key_pair" "instance_key_pair" {
   public_key = file(var.public_key_path)
 }
 
+output "info" {
+  value =  "The instance will be deployed to ${var.dns_record_name}.${var.domain_name}" 
+}
+
 # Launch the EC2 instance
 resource "aws_instance" "ai_ec2_instance" {
   ami                    = var.ami_id
@@ -29,7 +33,11 @@ resource "aws_instance" "ai_ec2_instance" {
   provisioner "file" {
     content      = templatefile(
       "./provision.template.sh",
-      { OLLAMA_API_KEY = var.ollama_api_key }
+      {
+        full_domain    = "${var.dns_record_name}.${var.domain_name}",
+        ollama_api_key = var.ollama_api_key,
+        model          = var.ai_model
+      }
     )
     destination = "/tmp/provision.sh"
 

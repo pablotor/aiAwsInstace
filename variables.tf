@@ -77,7 +77,32 @@ variable "user" {
 }
 
 variable "ollama_api_key" {
-  description = "The api key to connect to ollama"
+  description = "The api key to connect to Ollama"
   type        = string
 }
 
+variable "ai_model" {
+  description = "The model to be pulled from Ollama registry"
+  type        = string
+  default     = "tinyllama"
+}
+
+variable "domain_name" {
+  description = "Your domain name required to create the Route53 Hosted Zone"
+  type        = string
+}
+
+variable "hosted_zone_id" {
+  description = "value"
+  type        = string
+}
+
+variable "dns_record_name" {
+  description = "The dns record name"
+  type        = string
+}
+
+variable "email" {
+  description = "Your email required to generate the SSL Certificate"
+  type        = string
+}
