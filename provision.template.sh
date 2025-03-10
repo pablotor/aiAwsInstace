@@ -5,7 +5,7 @@ sudo dnf update -y
 curl -fsSL https://ollama.com/install.sh | sh
 
 # Pull model
-sudo ollama pull ${model}
+sudo ollama pull "${model}"
 
 # Configure Ollama to accept requests from any origin
 # TODO more granular origins
@@ -52,10 +52,10 @@ EOF
 # Reload daemon overrides
 sudo systemctl daemon-reload
 
+# Restart Ollama server
+sudo systemctl restart ollama
+sudo systemctl enable ollama
+
 # Update Nginx configuration with the API key
 sudo systemctl start nginx
 sudo systemctl enable nginx
-
-# Start Ollama server
-sudo systemctl start ollama
-sudo systemctl enable ollama
